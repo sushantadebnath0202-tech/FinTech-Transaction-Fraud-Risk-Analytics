@@ -1,0 +1,24 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Customers","Accounts","Transactions","Alerts"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Customers
+ref table Accounts
+ref table Transactions
+ref table Alerts
+ref table DateTableTemplate_1138e23e-5e7b-4f07-996e-7e6011053729
+ref table LocalDateTable_b19a28cb-be37-438e-9255-663b72563ced
+ref table LocalDateTable_92d68602-f67f-4112-8908-21c02957a0a2
+ref table LocalDateTable_39d11b4b-7005-41a9-b0d2-dd3753b244ac
+ref table LocalDateTable_e2984cec-e663-4342-a502-0092fa1a3ca0
+

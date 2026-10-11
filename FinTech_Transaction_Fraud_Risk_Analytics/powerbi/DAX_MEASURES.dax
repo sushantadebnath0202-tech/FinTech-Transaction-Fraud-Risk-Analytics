@@ -1,0 +1,49 @@
+-- Measures for Transactions table. These are also embedded in the PBIP semantic model.
+
+Total Transactions =
+COUNTROWS(Transactions)
+-- Format: #,##0
+
+Transaction Volume USD =
+SUM(Transactions[amount_usd])
+-- Format: \$#,##0.00
+
+Approved Transactions =
+CALCULATE(COUNTROWS(Transactions), Transactions[transaction_status] = "Approved")
+-- Format: #,##0
+
+Approval Rate =
+DIVIDE([Approved Transactions], [Total Transactions], 0)
+-- Format: 0.0%
+
+Flagged Transactions =
+CALCULATE(COUNTROWS(Transactions), Transactions[is_flagged] = 1)
+-- Format: #,##0
+
+Alert Rate =
+DIVIDE([Flagged Transactions], [Total Transactions], 0)
+-- Format: 0.0%
+
+Confirmed Fraud Cases =
+CALCULATE(COUNTROWS(Transactions), Transactions[confirmed_fraud] = 1)
+-- Format: #,##0
+
+Approved Fraud Loss USD =
+CALCULATE(SUM(Transactions[amount_usd]), Transactions[confirmed_fraud] = 1, Transactions[transaction_status] = "Approved")
+-- Format: \$#,##0.00
+
+Missed Fraud Cases =
+CALCULATE(COUNTROWS(Transactions), Transactions[confirmed_fraud] = 1, Transactions[is_flagged] = 0)
+-- Format: #,##0
+
+Cleared Alerts =
+CALCULATE(COUNTROWS(Alerts), Alerts[review_outcome] = "Cleared")
+-- Format: #,##0
+
+Cleared Alert Rate =
+DIVIDE([Cleared Alerts], COUNTROWS(Alerts), 0)
+-- Format: 0.0%
+
+Channel Rank by Fraud Loss =
+RANKX(ALL(Transactions[channel]), [Approved Fraud Loss USD],, DESC, DENSE)
+-- Format: 0

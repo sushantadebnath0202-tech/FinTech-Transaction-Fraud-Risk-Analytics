@@ -1,0 +1,32 @@
+relationship 190afcc3-7679-53a2-a737-d49f2b3719c4
+	fromColumn: Accounts.customer_id
+	toColumn: Customers.customer_id
+
+relationship 50411fe7-01d6-5fc2-8290-50142755f569
+	fromColumn: Transactions.account_id
+	toColumn: Accounts.account_id
+
+relationship 4178f6e3-0d2c-54ed-a731-8c1e756072d8
+	fromColumn: Alerts.transaction_id
+	toColumn: Transactions.transaction_id
+
+relationship d1a9ddb3-a6d7-47a6-b164-3564e629d418
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Customers.signup_date
+	toColumn: LocalDateTable_b19a28cb-be37-438e-9255-663b72563ced.Date
+
+relationship b1d1f0a7-438f-4bdf-8297-a867ad8f91c2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Accounts.opened_date
+	toColumn: LocalDateTable_92d68602-f67f-4112-8908-21c02957a0a2.Date
+
+relationship 3a860609-b5e2-4473-be9f-47f460e0273a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Transactions.transaction_date
+	toColumn: LocalDateTable_39d11b4b-7005-41a9-b0d2-dd3753b244ac.Date
+
+relationship 9d915bb9-2072-4fa1-b04c-9eba54c9c8a0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Alerts.alert_date
+	toColumn: LocalDateTable_e2984cec-e663-4342-a502-0092fa1a3ca0.Date
+

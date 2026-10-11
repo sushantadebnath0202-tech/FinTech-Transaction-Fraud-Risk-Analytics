@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "6316a7ea8e076b95c024",
+  "position": {
+    "x": 338.40000000000003,
+    "y": 53.28,
+    "z": 1000,
+    "height": 118.08,
+    "width": 277.92,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Transactions"
+                    }
+                  },
+                  "Property": "Transaction Volume USD"
+                }
+              },
+              "queryRef": "Transactions.Transaction Volume USD",
+              "nativeQueryRef": "Transaction Volume USD"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
